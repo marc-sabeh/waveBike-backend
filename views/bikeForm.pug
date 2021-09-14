@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='/bike')
+    .form-group
+      label(for='bike_name') Bike Name
+      input.form-control(id='bike_name' name='bike_name' type='text' placeholder='Enter Bike Name')
+    .form-group.bump-down
+      button.btn.btn-primary(type='submit') Submit

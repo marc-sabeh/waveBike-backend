@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1 Bikes #{title}
+    table(style='width:100%', border='2')
+            tr
+            th(style='text-align:center; font-size:2rem;') Id
+            th(style='text-align:center; font-size:2rem;') bike Name
+            th(style='text-align:center; font-size:2rem;') 
+                tbody
+                    each bike in bikes
+                        tr
+                            td(style='text-align:center; font-size:1.5rem;') #{bike._id}
+                            td(style='text-align:center; font-size:1.5rem;') #{bike.bike_name}
+                            td(style='text-align:center; font-size:1.5rem;') 
+                                button(onclick =`buttonClick(${JSON.stringify(bike)})`) Delete
+    script.
+        function buttonClick(bike){
+            console.log(bike._id)
+            axios.delete(`bike/${bike._id}`)
+        }
+    
